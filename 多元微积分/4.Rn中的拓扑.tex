@@ -1,0 +1,407 @@
+\documentclass{article}
+
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\renewcommand{\labelenumi}{(\roman{enumi})} % 使用小写罗马数字
+
+\title{\(\mathbb{R}^n\) 中的拓扑}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{开集和闭集}
+\noindent 在这一节，我们讲述与\(\mathbb{R}^n\) 的拓扑相关的基本概念. 关于一般的拓扑空间的概念，可以参见：\newline
+\textit{Real and Abstract Analysis,\ \ Chapter 6,\ \ E. Hewitt,\ \ K. Stromberg},\newline
+\textit{Basic Topology,\ \ M. A. Armstrong}.
+
+\vspace{30pt}
+
+\noindent 设\ \ \(A  \subset \mathbb{R}^n\).\ 记\ \ \(A^{c} = \mathbb{R}^n\setminus A\).\ \ 设\ \ \(x_0 \in \mathbb{R}^n,\quad r > 0\).\ \ 记
+\begin{equation*}
+    B_r(x_0) = \{x \in \mathbb{R}^n;\quad | x - x_0 |< r \}
+\end{equation*}
+称\(B_r(x_0)\) 为以\(x_0\) 为心 半径为\(r\) 的开球. 记\ \ \(B_r = B_r(0)\). 称\(B_1\) 为单位球.
+
+\vspace{30pt}
+
+\noindent \textbf{定义1}.\ \ 设\ \ \(A  \subset \mathbb{R}^n\) 满足:\ \ 如果\(x \in A\)，则存在\(\varepsilon > 0\),使得\(B_{\varepsilon }(x) \subset A\)，称 A 为开集.
+
+\vspace{30pt}
+
+\noindent \textbf{定义2}.\ \ 设\ \ \(x_0 \in \mathbb{R}^n,\quad U \in \mathbb{R}^n\)是开集，\(x_0 \in U\).\ \ 称 U 为\(x_0\) 的邻域.
+
+\newpage
+
+\noindent \textbf{命题1}.（开集的基本性质）
+\begin{enumerate}
+    \item \(\varnothing ,\ \mathbb{R}^n\) 是开集；
+    \item 如果\(A_{\lambda } \subset \mathbb{R}^n\) 是开集，\(\lambda \in \Lambda \)，则\( \displaystyle\bigcup_{\lambda \in \Lambda }A_{\lambda }\) 也是开集；
+    \item 如果\(A_i  \subset \mathbb{R}^n\) 为开集，\(i = 1,2,\dots ,m,\quad m \in \mathbb{N}^{*}\)，则\( \displaystyle\bigcap_{i = 1}^{m}A_i\) 也是开集.
+\end{enumerate}
+
+\vspace{10pt}
+
+\noindent 证明：练习.\(\quad \square\)
+
+\vspace{20pt}
+
+\noindent Remark.\ \ 我们注意，任意个开集的交集不一定是开集. 例如，对任意\newline\(r > 0,\ B_r\) 是开集，但是\(\displaystyle\bigcap_{r > 0}B_r = \{0\} \) 不是开集.
+
+\newpage
+
+\noindent \textbf{定义3}.\ \ 设\ \ \(A \subset \mathbb{R}^n\). 如果\(A^{c}\) 是开集，称\(A\)是闭集.
+
+
+\vspace{20pt}
+
+\noindent \textbf{命题2}.\ \ (闭集的基本性质)
+\begin{enumerate}
+    \item \(\varnothing,\ \mathbb{R}^n\) 是闭集
+    \item 如果\(A_{\lambda }\subset \mathbb{R}^n\) 为闭集，\(\lambda \in \Lambda \)，则\(\displaystyle\bigcap_{\lambda \in \Lambda }A_{\lambda }\) 也是闭集；
+    \item 如果\(A_i \subset \mathbb{R}^n\)为闭集，\(i = 1,2,\dots ,m,\ \ m \in \mathbb{N}^{*}\)，则\(\displaystyle\bigcup_{i = 1}^{m}A_{i}\) 也是闭集.
+\end{enumerate}
+
+\vspace{10pt}
+
+\noindent 证明：由命题1和 De Morgan 定律直接可得.\(\quad \square\)
+
+\vspace{20pt}
+
+\noindent Remark.\ \ 我们注意，任意个闭集的并集并不一定是闭集. 例如，对任意\(r > 0,\ B_r^{c}\) 是闭集，但是\(\displaystyle\bigcup_{r > 0}B_r^{c} = \mathbb{R}^n\setminus \{0\}\) 不是闭集.
+
+\newpage
+
+\noindent 下面的结论告诉我们，所谓“闭”集，指的是对极限运算封闭的集合.
+
+\vspace{20pt}
+
+\noindent \textbf{命题3}.\ \ 设\ \ \(A \subset \mathbb{R}^n\)，则 A 为闭集当且仅当\(A\) 满足：如果\ \ \(x_k \in A,\newline k = 1,2,\dots \ \  x_k \to x_0 \in \mathbb{R}^n\)，则\(x_0 \in A\).
+
+\vspace{20pt}
+
+\noindent 证明：\newline
+“\( \implies \)”\ \ 设\(A\) 是闭集，\(x_k \in A,\quad k = 1,2,\dots ,\quad x_k \to x_0\). 下面证明\(x_0 \in A\).
+
+\vspace{10pt}
+
+\noindent 反证法. 假设\(x_0 \notin A\)，则\(x_0 \in A^{c}\). 因为\(A\) 是闭集，所以\(A^{c}\) 是开集. 因此，存在\(\varepsilon > 0\)，使得\(B_{\varepsilon }(x_0)\subset A^{c}\)，则\(B_{\varepsilon }(x_0)\cap A = \varnothing \). 因为\(x_k \to x_0\)，存在\(N \in \mathbb{N}^{*}\)，使得\(x_N \in B_{\varepsilon }(x_0)\)，这与\(B_{\varepsilon }(x_0)\cap A = \varnothing \) 矛盾. 因此，假设不成立，所以必有\(x_0 \in A\).
+
+\vspace{20pt}
+
+\noindent “\( \impliedby \)”\ \ 由定义，我们需要证明\(A^{c}\) 是开集. 设\(x_0 \in A^{c}\). 下面证明：\newline 存在\(\varepsilon > 0\)，使得\(B_{\varepsilon }(x_0)\cap A = \varnothing\).
+
+\vspace{10pt}
+
+\noindent 反证法. 假设对于任意\(\varepsilon > 0,\quad B_{\varepsilon }(x_0)\cap A \neq  \varnothing\)，则对任意\(k \in \mathbb{N}^{*}\)，存在\(x_k \in B_{\frac{1}{k} }(x_0)\cap A\). 则\(x_k \in \mathbb{R}^n,\quad k = 1,2,\dots \)\ \ 并且\(x_k \to x_0\)，因此\(x_0 \in A\)，这与\(x_0 \in A^{c}\) 矛盾. 所以，假设不成立；因此存在\(\varepsilon > 0\)，使得\(B_{\varepsilon }(x_0)\cap A = \varnothing\). 这就证明了\(A^{c}\) 是开集，因此\(A\) 是闭集.\(\quad \square\)
+
+\newpage
+
+\noindent 由命题1\ (i)\ 和命题2\ (i)\ , \(\varnothing\ \text{和}\ \mathbb{R}^n\) 既是开集也是闭集. 下面证明，如果\(A \subset \mathbb{R}^n\) 既是开集也是闭集，则必有\(A = \varnothing\ \text{或}\ \mathbb{R}^n\).
+
+\vspace{20pt}
+
+\noindent \textbf{命题4}.\ \ 设\ \ \(A \subset \mathbb{R}^n\).\ \ 如果\(A\) 既是开集也是闭集，则\(A = \varnothing\ \text{或}\ \mathbb{R}^n\).
+
+\vspace{20pt}
+
+\noindent 证明：反证法.\ \ 假设\(A \neq \varnothing\ \text{且}\ A \neq \mathbb{R}^n\). 设\(x_0 \in A^{c}\). 记
+\begin{equation*}
+    d = inf \,\{ | x - x_0 |;\quad x \in A \}.
+\end{equation*}
+则存在\(x_k \in A,\quad k = 1,2,\dots \)\ \ 使得
+\begin{equation}
+    | x_k - x_0 |\to d.
+\end{equation}
+由(1)式知\(\{x_k\} \) 有界，因此存在\(\{x_k\} \) 的子列\(\{x_{k_{i}}\},\ \ x_{k_{i}} \to y_0 \in \mathbb{R}^n\). 因为\(A\) 是闭集，所以\(y_0 \in A\).\newline
+由(1)式\(| x_{k_{i}} - x_0 |\to d \). 因为\(x_{k_{i}}\to y_0\)，所以
+\begin{equation*}
+    x_{k_{i}} - x_0 \to y_0 - x_0
+\end{equation*}
+因此
+\begin{equation}
+    | x_{k_{i}} - x_0 |\to | y_0 - x_0 |.
+\end{equation}
+由(1)(2)得\(d = | y_0 - x_0 | \)，即
+\begin{equation}
+    | y_0 - x_0 |= \min_{x \in A} | x - x_0 |.
+\end{equation}
+因为\(A\) 是开集. 因此，存在\(\varepsilon > 0\)，使得\(B_{\varepsilon }(y_0) \subset A\). 因为\(x_0 \in A^{c}\)，所以\(x_0 \notin B_{\varepsilon }(y_0)\)，即\(| y_0 - x_0| \ge \varepsilon\).\ \ 令
+\begin{equation*}
+    z = y_0 + \frac{\varepsilon (x_0 - t_0)}{2 | x_0 - y_0 | }
+\end{equation*}
+则\(| z - y_0 |= \frac{\varepsilon }{2}  \)，因此\(z \in A\). 由于
+\begin{equation*}
+    | z - x_0 |= \left| (y_0 - x_0) - \frac{\varepsilon(y_0 - x_0) }{2 | y_0 - x_0 | } \right|= \left| | y_0 - x_0 | - \frac{\varepsilon}{2}   \right|= | y_0 - x_0 | - \frac{\varepsilon }{2}
+\end{equation*}
+因此
+\begin{equation*}
+    | z - x_0 |< | y_0 - x_0 |
+\end{equation*}
+这与(3)式矛盾.\ \ 所以假设不成立，因此必有\(A = \varnothing\ \text{或}\ \mathbb{R}^n. \quad \square\)
+
+\newpage
+
+\section{内部与闭包}
+\noindent \textbf{定义4}.\ \ 设\ \ \(A \in \mathbb{R}^n\)，记
+\begin{align*}
+    \mathcal{G} &= \{G \subset \mathbb{R}^n; \quad G \subset A,\quad G\text{是开集}\}, \\
+    \mathcal{F} &= \{F \subset \mathbb{R}^n;\quad F \supset A,\quad F\text{是闭集}\}.
+\end{align*}
+则\(\varnothing \in \mathcal{F}\).\ \ 因此，\(\mathcal{F},\ \mathcal{G} \neq \varnothing \).\ \ 定义
+\begin{align*}
+    A^{ \circ } &= \bigcup_{G \in \mathcal{G}}G, \\
+    \overline{A} &= \bigcap_{F \in \mathcal{F}}F.
+\end{align*}
+分别称\(A^{ \circ },\ \overline{A}\) 为\(A\) 的内部和\(A\) 的闭包.
+
+\vspace{20pt}
+
+\noindent 设\(A \subset \mathbb{R}^n\). 由命题1(ii)\ \ \(A^{ \circ }\) 是开集. 设\(G\) 是一个包含于\(A\) 的开集，则由定义，\(G \subset A^{ \circ }\). 因此，\(A^{ \circ }\) 是包含于\(A\) 的最大开集. 由命题2(ii)\ \ \(\overline{A}\) 是闭集. 记\(F\) 是一个包含\(A\) 的闭集，则由定义，\(F \supset \overline{A}\). 因此，\(\overline{A}\) 是包含\(A\) 的最小闭集. 由此可得如下结论.
+
+\vspace{20pt}
+
+\noindent \textbf{命题5}.\ \ 设\ \ \(A \subset \mathbb{R}^n\)，则\(A\) 是开集当且仅当\(A = A^{\circ }\)，\(A\) 是闭集当且仅当\(A = \overline{A}\).
+
+\vspace{20pt}
+
+\noindent 证明：练习.\(\quad \square \)
+
+\newpage
+
+\noindent 内部和闭包是两个对偶的概念.
+
+\vspace{20pt}
+
+\noindent \textbf{命题6}.\ \ 设\ \ \(A \subset \mathbb{R}^n\). 则\(\left(\overline{A}\right)^{c} =\left(A^{c}\right)^{\circ },\quad \left(A^{\circ }\right)^{c} = \overline{A^{c}}\).
+
+\vspace{20pt}
+
+\noindent 证明：首先证明第1个等式. 记
+\begin{align*}
+    \mathcal{F} &= \{F;\quad F \supset A,\quad F\text{为闭集}\}, \\
+    \mathcal{G} &= \{G;\quad G \subset A^{c},\quad G\text{为开集}\}.
+\end{align*}
+则
+\begin{equation*}
+    F \in \mathcal{F} \iff F \supset A,\quad F\text{为闭集} \iff F^{c} \subset A^{c},\ \ F^{c}\text{为开集} \iff F^{c} \in \mathcal{G}.
+\end{equation*}
+因此
+\begin{equation*}
+    \left(\overline{A}\right)^{c} =\left(\bigcap_{F \in \mathcal{F}}F\right)^{c} = \bigcup_{F \in \mathcal{F}}F^{c} = \bigcup_{F^c \in \mathcal{G}}F^c = \bigcup_{G \in \mathcal{G}}G =\left(A^c\right)^{\circ }.
+\end{equation*}
+这就证明了第1个等式.
+
+\vspace{20pt}
+
+\noindent 在第1个等式中，将\(A\) 换成\(A^c\) 得\(\left(\overline{A^c}\right)^{c} = A^{\circ }\)，因此\(\overline{A^c} = (A^{\circ })^{c}\). 这就证明了第2个等式.\(\quad \square\)
+
+\newpage
+
+\noindent 我们可以用点列的极限描述一个点集的闭包.
+
+\vspace{20pt}
+
+\noindent \textbf{命题7}.\ \ 设\ \ \(A \subset \mathbb{R}^n\). 则
+\begin{equation}
+    \overline{A} = \left\{x \in \mathbb{R}^n;\quad \text{存在}\ \ x_k \in A,\quad k = 1,2,\dots \quad \text{使得}\ x_k \to x \right\}.
+\end{equation}
+
+\vspace{20pt}
+
+\noindent 证明：用\(B\) 表示(4)式右端的集合.
+
+\vspace{10pt}
+
+\noindent (1)\ \ \(B \subset  \overline{A}\). \newline
+设\ \ \(x_k \in A,\quad k = 1,2,\dots \)\ \ 因为\(A \subset \overline{A}\)，所以\(x_k \in \overline{A},\quad k = 1,2,\dots \)\ \ 因为\(\overline{A}\) 是闭集，所以\(x \in \overline{A}\). 这就证明了\(B \subset \overline{A}\).
+
+\vspace{10pt}
+
+
+\noindent (2)\ \ \(\overline{A} \subset B\). \newline
+设\ \ \(x_0 \in \overline{A}\). 设\ \ \(\varepsilon > 0\). 则\(B_{\varepsilon }(x_0)\cap A \neq \varnothing \). 否则\(A \subset \left( B_{\varepsilon }(x_0) \right)^{c} \)，由于\(\left( B_{\varepsilon }(x_0) \right)^{c}\)是闭集，\(\overline{A} \subset \left( B_{\varepsilon }(x_0) \right)^{c}\)，从而\(x_0 \subset \left(B_{\varepsilon }(x_0)\right)^{c}\)，矛盾.\ \ 因此，\(B_{\varepsilon }(x_0)\cap A \neq \varnothing \). 设\ \ \(x_k \in B_{\frac{1}{k} }(x_0)\cap A,\quad k = 1,2,\dots \)\ \ 则\(x_k \in A,\quad k = 1,2,\dots\ \ x_k \to x_0\)，\ 因此\(x_0 \in B\).\ \ 这就证明了\(\overline{A} \subset B\).
+
+\vspace{20pt}
+
+\noindent 由(1)(2)得\(\overline{A} = b. \quad \square\)
+
+\newpage
+
+\section{边界}
+\noindent \textbf{定义5}.\ \ 设\ \ \(A \in \mathbb{R}^n\). 记
+\begin{equation*}
+    \partial A = \overline{A} - A^{\circ }
+\end{equation*}
+称\(\partial A\) 为\(A\) 的边界.
+
+\vspace{20pt}
+
+\noindent 由定义
+\begin{equation*}
+    \partial A = \overline{A}\cap (A^{\circ })^{c}.
+\end{equation*}
+由于\(\overline{A},\ (A^{\circ })^{c}\)是闭集，所以\(\partial A\) 是闭集.
+
+\vspace{20pt}
+
+\noindent 例1.\ \ 设\(x_0 \in \mathbb{R}^n,\quad r > 0\). 则
+\begin{align*}
+    \overline{B_{r}}(x_0) &= \{x \in \mathbb{R}^n;\quad | x - x_0 | \le r \}, \\
+    \partial B_r(x_0) &= \{x \in \mathbb{R}^n;\quad | x - x_0 |= r \}.
+\end{align*}
+称\(\overline{B_{r}}(x_0)\) 为以\(x_0\) 为心，半径为\(r\) 的闭球，称\(\partial B_r(x_0)\) 为以\(x_0\) 为心，半径为\(r\) 的球面.
+
+\vspace{20pt}
+
+\noindent 例2.\ \ 记
+\begin{equation*}
+    H = \{x =(x^1,\dots ,x_n)\in \mathbb{R}^n;\quad x^n > 0\}
+\end{equation*}
+称\(H\) 为上半空间，则
+\begin{align*}
+    \overline{H} &= \left\{x =(x^1,\dots ,x_n)\in \mathbb{R}^n;\quad x^n \ge  0\right\}, \\
+    \partial H &= \left\{x =(x^1,\dots ,x_n)\in \mathbb{R}^n;\quad x^n = 0\right\}.
+\end{align*}
+
+\newpage
+
+\noindent \textbf{命题8}.\ \ 设\(A \subset \mathbb{R}^n\)，则\(\partial A =\partial(A^{c})\).
+
+\vspace{20pt}
+
+\noindent 证明：\ \ 由命题6，
+\begin{equation*}
+    \partial(A^c) = \overline{A^c} -(A^c)^{\circ } = \left( A^{\circ } \right)^{c} -\left(\overline{A}\right)^{c} =(A^{\circ })^{c}\cap \overline{A} = \overline{A} - A^{\circ } =\partial A.\quad \square
+\end{equation*}
+
+\newpage
+
+\section{内点，边界点，聚点}
+\noindent 设\ \ \(A \subset \mathbb{R}^n,\ x_0 \in \mathbb{R}^n\). 如果\(x_0 \in A^{\circ }\)，称\(x_0\) 是\(A\) 的内点；如果\(x_0 \in \partial A\)，称\(x_0\) 是\(A\) 的边界点.如果对于任意\(r > 0,\  A \cap \left( B_r(x_0)\setminus \{x_0\}  \right) \neq \varnothing  \)，称\(x_0\) 是\(A\) 的聚点；如果\(x_0 \in A\)，并且存在\(r > 0\)，使得\(A \cap \left( B_r(x_0)\setminus \{x_0\}  \right) = \varnothing \)，称\(x_0\) 是\(A\) 的孤立点.
+
+\vspace{20pt}
+
+\noindent 我们可以用点列的极限描述边界点和聚点.
+
+\vspace{20pt}
+
+\noindent \textbf{命题9}.\ \ 设\ \ \(A \subset \mathbb{R}^n,\ x_0 \in \mathbb{R}^n\). 则
+\begin{enumerate}
+    \item \(x_0\) 是\(A\) 的边界点当且仅当存在\(x_k \in A,\ \ y_k \in A^c,\quad k = 1,2,\dots \)\ \ 使得\(x_k \to x_0,\ \ y_k \to x_0\)；
+    \item \(x_0\) 是\(A\) 的聚点当且仅当存在\(x_k \in A\setminus \{x_0\},\quad k = 1,2,\dots \) 使得\(x_k \to x_0\).
+\end{enumerate}
+
+\vspace{20pt}
+
+\noindent 证明：练习.\(\quad \square\)
+
+\newpage
+
+\noindent Remarks.\ \ 设\ \ \(A \in \mathbb{R}^n,\ A \neq \varnothing \). 下面考查\(A\) 的内点，边界点和聚点的关系. 设\(x_0 \in \mathbb{R}^n\).
+
+\vspace{20pt}
+
+\noindent (i)\ \ 如果\(x_0\) 是\(A\) 的内点，\(x_0\) 必是\(A\) 的聚点，不是\(A\) 的边界点.
+
+\vspace{20pt}
+
+\noindent (ii)\ \ 如果\(x_0\) 是\(A\) 的边界点\(x_0\) 必然不是\(A\) 的内点，可能是\(A\) 的聚点，也可能不是\(A\) 的聚点.\ \ 例如，设\(A =(0,\ 1)\cup \{2\} \)，则\(1\)是\(A\) 的边界点，也是\(A\) 的聚点；\(2\)是\(A\) 的边界点，但不是\(A\) 的聚点.
+
+\vspace{20pt}
+
+\noindent (iii)\ \ 如果\(x_0\) 是\(A\) 的聚点，\(x_0\) 可能是\(A\) 的内点，也可能不是\(A\) 的内点；\ \ 可能是\(A\) 的边界点，也可能不是\(A\) 的边界点.\ \ 例如，设\(A =( - 1,1)\)，则\(0\) 是\(A\) 的聚点，也是\(A\) 的内点，不是\(A\) 的边界点；\(1\) 是\(A\) 的聚点，不是\(A\) 的内点，是\(A\) 的边界点.
+
+\newpage
+
+\section{闭集套定理}
+
+\noindent 下面，我们将一维空间中闭区间套定理推广到\(\mathbb{R}^n\).
+
+\vspace{20pt}
+
+\noindent \textbf{定义6}.\ \ 设\(A \in \mathbb{R}^n\)，如果存在\(\mathbb{R}^n\) 中的开球\(B_R\)，使得\(A \subset B_R\)，称\(A\) 有界.
+
+\vspace{10pt}
+
+\noindent 设\(A \subset \mathbb{R}^n,\quad A \neq \varnothing \)，\(A\) 有界. 记
+\begin{equation*}
+    diam A = sup \{| x - y |;\quad x,\ y \in A \}
+\end{equation*}
+则\ \(0 \le diam A <+ \infty \)，称 \(diam A\) 为\(A\) 的直径. 设\(x_0 \in \mathbb{R}^n\)，称\(\{x_0\} \) 为单点集. 显然\(diam A = 0\) 当且仅当\(A\) 为单点集.
+
+\vspace{20pt}
+
+\noindent \textbf{定理1}.\ (闭集套定理)\ \ 设\(F_k \subset \mathbb{R}^n\)为有界闭集，\(F_k \neq \varnothing ,\ k = 1,2,\dots \)\ \ 如果
+\begin{enumerate}
+    \item \(F_k \supset F_{k + 1},\quad k = 1,2,\dots\)
+    \item \(diam\ F_k \to 0\)
+\end{enumerate}
+则\(\displaystyle\bigcap_{k = 1}^{ + \infty }F_{k}\) 为单点集.
+
+\vspace{20pt}
+
+\noindent 证明：\ \ 设 \ \ \(x_k \in F_k,\quad k = 1,2,\dots \)\ \ 则
+\begin{equation*}
+    x_i,\ x_j \in F_k,\quad \forall\ i,\ j \ge k
+\end{equation*}
+因此
+\begin{equation*}
+    | x_i - x_j | \le diam\ F_k,\quad \forall\ i,\ j \ge k,\quad k = 1,2,\dots
+\end{equation*}
+因为\(diam F_k \to 0\)，所以\(\{x_k\} \) 为Cauchy列. 设\(x_k \to x_0 \in \mathbb{R}^n\). 因为
+\begin{equation*}
+    x_i \in F_k,\quad \forall\ i \ge k
+\end{equation*}
+并且\(F_k\) 是闭集，所以\(x_0 \in F_k,\quad k = 1,2,\dots \)\ \ 因此\(x_0 \in \displaystyle\bigcap_{k = 1}^{ +\infty }F_k\)
+
+\noindent 设\(y_0 \in \displaystyle\bigcap_{k = 1}^{ + \infty }F_k\). 则\(x_0,\ y_0 \in F_k,\quad k = 1,2,\dots \)\ \ 因此
+\begin{equation*}
+    |x_0 - y_0| \le diam\ F_k,\quad k = 1,2,\dots
+\end{equation*}
+因为\(diam F_k \to 0\)，因此，\(| x_0 - y_0 |= 0 \)，从而\(y_0 = x_0\)，所以\(\displaystyle\bigcap_{k = 1}^{ + \infty }F_k\) 为单点集.\(\quad \square\)
+
+\newpage
+
+\noindent 练习1. \ \ 证明命题1，命题5，命题9.
+
+\vspace{20pt}
+
+\noindent 练习2. \ \ 设\ \ \(A \subset \mathbb{R}^n\).\ \ 证明：\ \ \(\partial A = \overline{A}\cap \overline{A^c}\).
+
+\vspace{20pt}
+
+\noindent 练习3. \ \ 设\ \ \(A \in \mathbb{R}^n,\quad x \in \mathbb{R}^n\).\ \ 证明：\ \ \(x \in \partial A\) 当且仅当对于任意的\(x\) 邻域\(U\)，\(U \cap A \neq \varnothing ,\ U \cap A^c \neq \varnothing \).
+
+\vspace{20pt}
+
+\noindent 练习4. \ \ 设\ \ \(\Omega \in \mathbb{R}^n\) 为非空的开集. 证明：\ \ \(\overline{\Omega} = \partial\,\Omega +\Omega\).
+
+\vspace{20pt}
+
+\noindent 练习5. \ \ 设\ \ \(A \subset \mathbb{R}^n\).\ \ 证明：\ \ \(A\) 是闭集当且仅当\(A \supset \partial A\).
+
+\vspace{20pt}
+
+\noindent 练习6.\ \ 设\ \ \(Q =[0,1]^n\).\ \ 求\(diam\ Q\).
+
+\vspace{20pt}
+
+\noindent 练习7. \ \ 设\ \ \(\prod_{i=1}^n [a_i,\ b_i],\quad a_i,\ b_i \in \mathbb{R},\ \ a_i < b_i,\ \ i = 1 \sim n\). \(Q\) 称为闭方体.\ \ 证明\(Q\) 为闭集.
+
+\vspace{20pt}
+
+\noindent 练习8. \ \ 设\ \ \(A \subset \mathbb{R}^n,\ x \in \mathbb{R}^n\).\ \ 判断下列结论是否正确，举例或举反例.
+\begin{enumerate}
+    \item \(\overline{A} =\partial A \cup A^{\circ }\),
+    \item 如果\(x \in \partial A\)，则\(x \in \overline{A}\),
+    \item 如果\(x \in \partial A\)，则\(x \in \overline{A^c}\),
+    \item \(\partial A = \overline{A}\cap \overline{A^c}\),
+    \item 如果\(x\) 是\(A\) 的聚点，则\(x \in \overline{A}\),
+    \item 如果\(x\) 是\(A\) 的聚点，则\(x\) 要么是\(A\) 的内点，要么是\(A\) 的边界点.
+\end{enumerate}
+
+\end{document}

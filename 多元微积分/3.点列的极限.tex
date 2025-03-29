@@ -1,0 +1,186 @@
+\documentclass{article}
+
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\renewcommand{\labelenumi}{(\roman{enumi})} % 使用小写罗马数字
+
+\title{点列的极限}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{\(\mathbb{R}^n\) 中点列的极限}
+\noindent 在这一节，我们将数列的极限的概念推广到\(\mathbb{R}^n\) 中的点列. 设\(x_k \in \mathbb{R}^n,\quad k = 1, 2,\dots \) 我们称\(x_1,x_2,\dots \) 为\(\mathbb{R}^n\) 中的点列，记为\(\{x_k\}_{k = 1}^{ + \infty } \)， 或简单地记为\(\{x_k\} \).
+
+\vspace{20pt}
+\noindent \textbf{定义1}.\ \ 设\(x_k \in \mathbb{R}^n,\quad k = 1,2,\dots \quad \) 如果存在\(a \in \mathbb{R}^n\) 满足：对于任意\(\varepsilon > 0\)，存在\(N \in \mathbb{N}^{*}\)，使得
+\begin{equation*}
+    | x_k - a |< \varepsilon ,\quad \forall\ k \ge N
+\end{equation*}
+称\(\{x_k\} \) 收敛，称\(a\) 是\(\{x_k\}\) 的极限.
+
+\vspace{20pt}
+
+\noindent 由定义，
+\begin{center}
+    \(a\) 是点列\(\{x_k\} \) 的极限\(\iff \displaystyle\lim_{k \to \infty }| x_k - a |= 0  \).
+\end{center}
+
+\newpage
+
+\noindent 收敛的点列的极限是唯一的.
+
+\vspace{20pt}
+\noindent \textbf{命题1}.\ \ 设\(x_k \in \mathbb{R}^n,\quad k = 1,2,\dots \)\ \ 如果\(a, b \in \mathbb{R}^n\) 均为\(\{x_k\} \) 的极限，则\(a = b\).
+\vspace{20pt}
+
+\noindent 证明：由三角不等式
+\begin{equation*}
+    | a - b | \le | x_k - a |+ | x_k - b |,\quad \forall \ k = 1,2,\dots
+\end{equation*}
+在上式中令\(k \to + \infty \) 得\(| a - b |= 0 \)，因此\(a = b.\quad \square\)
+
+\vspace{20pt}
+
+\noindent 设\(x_k \in \mathbb{R}^n,\quad k = 1,2,\dots \ \ \{x_k\} \) 收敛，用\(\displaystyle\lim_{k \to \infty }x_k \) 表示\(\{x_k\} \) 的极限. 如果\(a = \displaystyle\lim_{k \to \infty }x_k \)，也记
+\begin{equation*}
+    x_k \to a,\quad \text{当}\,k \to + \infty \,\text{时}
+\end{equation*}
+或简单地记为\(x_k \to a\).
+
+\newpage
+
+\noindent 设\(x_k,\ a \in \mathbb{R}^n,\quad k = 1,2,\dots \)\ \ 由定义，\(x_k \to a\) 当且仅当\(|x_k - a| \to 0\). 由于向量的2-范数与\(\infty \)-范数等价，
+\begin{align*}
+    | x_k - a |\to 0 &\iff \| x_k - a \|_{\infty }\to 0 \\
+    &\iff \forall \ i = 1 \sim n,\quad | x_k^i - a_k^i | \implies 0 \\
+    &\iff x_k^i \to a^i,\quad \forall\ i = 1 \sim n
+\end{align*}
+因此，我们有如下结论.
+
+\vspace{20pt}
+
+\noindent \textbf{命题2}.\ \ 设\(x_k,\ a \in \mathbb{R}^n,\quad k = 1,2,\dots \)\ \ 则\(x_k \to a\) 当且仅当
+\begin{equation*}
+    x_k^i \to a^i,\quad i = 1,2,\dots ,n
+\end{equation*}
+
+\newpage
+
+\noindent 下面考察点列极限的性质.
+
+\vspace{20pt}
+
+\noindent \textbf{定义2}.\ \ 设\(x_k \in \mathbb{R}^n,\quad k = 1,2,\dots \)\ \ 如果存在\(M \in \mathbb{R},\ M > 0\)，使得
+\begin{equation*}
+    | x_k | \le M,\quad k = 1,2,\dots
+\end{equation*}
+称\(\{x_k\} \) 有界.
+\vspace{20pt}
+
+\noindent 由于向量的2-范数与\(\infty \)-范数等价，因此，\(\{x_k\} \) 有界当且仅当对于任意\(i = 1,2,\dots ,n,\ \left\{x_k^i\right\}_{k = 1}^{ + \infty } \) 有界.
+
+\newpage
+
+\noindent \textbf{命题3}. (点列的极限的基本性质)
+
+\noindent 设\(x_n,\ y_n \in \mathbb{R}^n,\quad k = 1,2,\dots ,\quad \alpha,\ \beta \in \mathbb{R}\).
+\begin{enumerate}
+    \item （有界性）如果\(\{x_k\} \) 收敛，则\(\{x_k\} \) 有界；
+    \item （线性性）如果\(x_k\to x,\quad y_k\to y\)，则\(\alpha\,x_k + \beta\,y_k \to \alpha\,x + \beta\,y\)；
+    \item （内积和范数的连续性）\ \ 如果\(x_k \to x,\quad y_k \to y\)，则\(| x_k |\to | x |,\newline x_k \cdot y_k\to x \cdot y\).
+\end{enumerate}
+
+\vspace{10pt}
+
+\noindent 证明：(i)\ (ii)\ (iii)\ 由命题2及数列极限的性质可得. 下面给（iii）一个直接的证明. 由三角不等式
+\begin{equation*}
+    \left| | x_k | - | x | \right| \le | x_k - x |,\quad k = 1,2,\dots
+\end{equation*}
+令\(k \to + \infty \) 可得\(| x_k |\to | x |  \). 由三角不等式和 Cauchy 不等式
+\begin{equation*}
+    | x_k \cdot y_k - x \cdot y |= | x_k \cdot y_k - x_k \cdot y + x_k \cdot y - x \cdot y | \le | x_k |\ | y_k - y |+ | y |\ | x_k - x |
+\end{equation*}
+令\(k \to \infty \) 可得\ \ \(x_k \cdot y_k\to x \cdot y.\quad \square\)
+
+\newpage
+
+\section{子列的极限}
+\noindent 设\(x_1,x_2,\dots \) 是\(\mathbb{R}^n\) 中的一个点列. 设\(k_i \in \mathbb{N}^{*},\quad i = 1,2,\dots \ \ \{k_i\} \) 严格单调增. 称\(\{x_{k_{i}}\}_{i = 1}^{ + \infty } \) 为\(\{x_k\}_{k = 1}^{ + \infty } \) 的子列.
+
+\vspace{20pt}
+
+\noindent \textbf{命题4}. 设\(x_k \in \mathbb{R}^n,\quad k = 1,2,\dots\ \ \{x_{k_{i}}\} \)为\(\{x_k\} \) 的子列. 如果\(x_k \to x\)，则\(x_{k_{i}}\to x\).
+
+\vspace{20pt}
+
+\noindent 证明：由命题2及数列极限的相应结论可得. \(\ \square\)
+
+\newpage
+
+\noindent \textbf{定理1}.\ \ 设\(x_k \in \mathbb{R}^n,\quad k = 1,2,\dots \)\ \ 如果\(\{x_k\} \) 有界，则\(\{x_k\} \) 必有收敛的子列.
+
+\vspace{20pt}
+
+\noindent 证明：应用数学归纳法.\ \ 我们对空间的维数n进行归纳. 当\(n = 1\) 时，\(\{x_k\} \) 为有界数列，因此，\(\{x_k\} \) 必有收敛的子列. 设\(n = N\) 时，定理的结论成立. 下面证明，\(n = N + 1\) 时，定理的结论也成立.
+
+\vspace{20pt}
+
+\noindent 设\ \ \(x_k \in \mathbb{R}^{N + 1},\quad k = 1,2,\dots\ \ \{x_k\}\) 有界. 记
+\begin{equation*}
+    x_k =(y_k,z_k)\quad k = 1,2,\dots
+\end{equation*}
+其中\(y_k \in \mathbb{R}^{N},\ z_k \in \mathbb{R},\quad k = 1,2,\dots \)\ \ 则\(\{y_k\},\ \{z_k\}  \) 有界. 由归纳假设，\(y_k\) 有收敛的子列\(\{y_{k_{i}}\}\). 设\(y_{k_{i}}\to y \in \mathbb{R}^n\). 因为\(\{z_k\} \) 有界，因此\(\{z_{k_{i}}\} \) 有收敛的子列\(\{z_{k_{i_{j}}}\} \). 设\(\{z_{k_{i_{j}}}\} \to z \in \mathbb{R}\). 由命题4，\(y_{k_{i_{j}}} \to y\). 令\(x =(y,\ z)\). 则\(x \in \mathbb{R}^{N + 1}\). 由命题2，\(x_{k_{i_{j}}}\to x\).
+
+\vspace{10pt}
+
+\noindent 因此，当\(n = N + 1\) 时，定理的结论也成立. 这就证明了定理1. \(\quad \square\)
+
+\newpage
+
+\section{Cauchy 收敛原理}
+\noindent 下面我们将数列的 Cauchy 收敛原理推广到\(\mathbb{R}^n\).
+
+\vspace{20pt}
+
+\noindent \textbf{定义3}.\ \ 设\ \ \(x_k \in \mathbb{R}^n,\quad k = 1,2,\dots \)\ \ 如果对于任意\(\varepsilon > 0\)，存在\(N \in \mathbb{N}^{*}\)，使得
+\begin{equation*}
+    | x_k - x_m |< \varepsilon ,\quad \forall\ k,\ m \ge N
+\end{equation*}
+称\(\{x_k\} \) 为 Cauchy 列.
+
+\vspace{20pt}
+
+\noindent \textbf{定理2}.（Cauchy收敛原理）\ 设\ \ \(x_k \in \mathbb{R}^n,\quad k = 1,2,\dots \)\ \ 则\(\{x_k\} \) 收敛当且仅当\(\{x_k\} \) 为 Cauchy列.
+
+\vspace{20pt}
+
+\noindent 证明：由向量的2-范数与\(\infty \)-范数等价性知，\(\{x_k\} \) 为 Cauchy 列当且仅当\(\{x_n^i\},\quad i = 1 \sim n \) 为 Cauchy 列. 由数列的 Cauchy 收敛原理，\(\{x_k^i\} \) 收敛当且仅当\(\{x_k^i\} \) 为 Cauchy 列. 因此，由命题2，\(\{x_k\} \) 收敛当且仅当\(\{x_n\}\) 为 Cauchy 列.\(\quad \square \)
+
+\vspace{20pt}
+
+\noindent Remark. \ \ 定理2告诉我们，\(\mathbb{R}^n\) 是一个完备的度量空间. 所谓完备的度量空间，意思是说，这个空间没有“边”和“洞”.
+
+\newpage
+
+\noindent 练习1.\ \ 设\ \ \(A_k \in \mathbb{R}^{m \times n},\quad B_n \in \mathbb{R}^{n \times p},\quad n = 1, 2,\dots \quad A_k \to A,\quad B_k \to B\). 证明：\(A_k\ B_k \to AB\)
+
+\vspace{20pt}
+
+\noindent 练习2.\ \ 设\ \ \(A_k \in \mathbb{R}^{n \times n},\quad k = 1,2,\dots \quad  A_k \to A\). 证明：\(det\ A_k \to det\ A\).
+
+\vspace{30pt}
+
+\noindent 练习3.\ \ 设\ \ \(A,\ B,\ C:\ \mathbb{R}^n \to \mathbb{R}^n\) 为线性变换（或\(A,\ B,\ C \in \mathbb{R}^{n \times n}\)），定义
+\begin{equation*}
+    \left[ A,\ B \right] = AB - BA
+\end{equation*}
+证明如下的 Jacobi 等式：
+\begin{equation*}
+    \left[\ [A,\ B]\,,\ C\ \right] + \left[\ [C,\ A]\,,\ B\ \right] = \left[\ [B,\ C]\,,\ A\ \right] = 0
+\end{equation*}
+\end{document}
