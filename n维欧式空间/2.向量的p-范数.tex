@@ -6,7 +6,9 @@
 \usepackage{ctex}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{amsthm}
+\usepackage{analysis}
+\usepackage{parskip}
+
 
 \renewcommand{\labelenumi}{(\roman{enumi})} % 使用小写罗马数字
 
@@ -16,51 +18,54 @@
 \section{平均值不等式}
 在这一节，我们讲述向量的p-范数。为此，我们首先证明数学中一个基本不等式：平均值不等式.
 
-\vspace{20pt}
-\noindent 设\(q_1,q_2,\dots ,q_n > 0\),
+设\(q_1,q_2,\dots ,q_n > 0\),
 \begin{equation*}
     \sum_{i=1}^n q_i = 1
 \end{equation*}
-称 \(q_1,\dots ,q_n\) 为权。设 \(a_1,a_2,\dots ,a_n\) 为几个正数，\(r > 0\). 记
+称 \(q_1,\dots ,q_n\) 为权。
+
+\vspace{10pt}
+
+设 \(a_1,a_2,\dots ,a_n\) 为几个正数，\(r > 0\). 记
 \begin{align*}
     & a =(a_1,\dots ,a_n), \\
     & m_r(a) =(\sum_{i=1}^n q_i a_i^r)^{\frac{1}{r}}, \\
     & G(a) = \prod_{i=1}^n a_i^{q_i} = a_1^{q_1} \ q_2^{q_2} \dots a_n^{q_n}
 \end{align*}
 
-\textbf{定理1}. (平均值不等式) \(\quad m_r(a) \ge G(a),\quad \) “=”成立当且仅当 \(a_1 = a_2 = \dots = a_n\)
+\begin{theorem}{平均值不等式}{}
+    \(\quad m_r(a) \ge G(a),\quad \) “=”成立当且仅当 \(a_1 = a_2 = \dots = a_n\)
+\end{theorem}
 
 
 \vspace{20pt}
 
-\noindent Remarks.
-\begin{enumerate}
-    \item 在定理 1 中，取\(r = 1\)，则
-        \begin{equation*}
-            \sum_{i=1}^n q_i a_i = \prod_{i=1}^n a_i^{q_i}
-        \end{equation*}
-        “=”成立当且仅当\(a_1 = a_2 = \dots = a_n\)；进一步地，在上式中令
-        \begin{equation*}
-            q_1 = q_2 = \dots = q_n = \frac{1}{n}
-        \end{equation*}
-        则
-        \begin{equation*}
-            \frac{a_1 + a_2 + \dots + a_n}{n} \ge \sqrt[n]{a_1 a_2 \dots a_n}
-        \end{equation*}
-        这就是通常的代数-几何平均值不等式
+\begin{remark}
+    \begin{enumerate}
+        \item 在定理 1 中，取\(r = 1\)，则
+            \begin{equation*}
+                \sum_{i=1}^n q_i a_i = \prod_{i=1}^n a_i^{q_i}
+            \end{equation*}
+            “=”成立当且仅当\(a_1 = a_2 = \dots = a_n\)；进一步地，在上式中令
+            \begin{equation*}
+                q_1 = q_2 = \dots = q_n = \frac{1}{n}
+            \end{equation*}
+            则
+            \begin{equation*}
+                \frac{a_1 + a_2 + \dots + a_n}{n} \ge \sqrt[n]{a_1 a_2 \dots a_n}
+            \end{equation*}
+            这就是通常的代数-几何平均值不等式
 
-    \item 关于与平均值不等式相关的更多内容，请参见：
+        \item 关于与平均值不等式相关的更多内容，请参见：
 
-    \textit{Inequalities, J.H.Hardy, G.E. Littlewood, G.Pólya, Cambridge}
-\end{enumerate}
+        \textit{Inequalities, J.H.Hardy, G.E. Littlewood, G.Pólya, Cambridge}
+    \end{enumerate}
+\end{remark}
 
 \newpage
 
-\noindent 定理1的证明：
-
-\vspace{10pt}
-
-Step 1. \ \ 设\(a_1,\dots ,a_n\) 不全相等，则\(m_{2r}(a) > m_r(a)\)
+\begin{proof}
+    Step 1. \ \ 设\(a_1,\dots ,a_n\) 不全相等，则\(m_{2r}(a) > m_r(a)\)
 
 \vspace{10pt}
 
@@ -96,29 +101,36 @@ Step 3. \ \ 显然，当\(a_1 = a_2 = \dots = a_n\) 时，\(m_r(a) = G(a)\)。�
     m_r(a) > \lim_{k \to  + \infty }m_{2^ { - k}\,r }(a) = G(a)
 \end{equation*}
 这就证明了定理1. \(\quad \square\)
+\end{proof}
 
 \newpage
 
 由定理1立马可得如下的 Yang 不等式.
 
-\vspace{20pt}
-
-\noindent \textbf{推论1}. 设 \(p, q > 0,\quad \frac{1}{p} + \frac{1}{q} = 1,\quad x, y > 0\) ，则
+\begin{corollary}{}{}
+    设 \(p, q > 0,\quad \frac{1}{p} + \frac{1}{q} = 1,\quad x, y > 0\) ，则
 \begin{equation*}
     \frac{1}{p} x^p + \frac{1}{q} y^q \ge xy
 \end{equation*}
 “=”成立当且仅当\(x^p = y^q\).
+\end{corollary}
 
 \vspace{20pt}
 
-\noindent 证明：由平均值不等式
+\begin{proof}
+    证明：由平均值不等式
 \begin{equation*}
     \frac{1}{p} x^p + \frac{1}{q} y^q \ge (x^p)^\frac{1}{p} (y^q)^\frac{1}{q} = xy
 \end{equation*}
 “=”成立当且仅当\(x^p = y^q\). \(\quad \square\)
 
+\end{proof}
+
 \vspace{20pt}
-\noindent Remark. 在推论1中，\(p, q\) 称为共轭指数.
+
+\begin{remark}
+    在推论1中，\(p, q\) 称为共轭指数.
+\end{remark}
 
 \newpage
 
@@ -133,7 +145,9 @@ Step 3. \ \ 显然，当\(a_1 = a_2 = \dots = a_n\) 时，\(m_r(a) = G(a)\)。�
 
 \vspace{20pt}
 
-\noindent Remark. 容易证明\(\quad \lim_{p \to + \infty }\|x\|_p =\|x\|_{\infty } \)
+\begin{remark}
+    容易证明：\(\lim_{p \to + \infty }\|x\|_p =\|x\|_{\infty } \)
+\end{remark}
 
 \vspace{20pt}
 
@@ -150,12 +164,15 @@ Step 3. \ \ 显然，当\(a_1 = a_2 = \dots = a_n\) 时，\(m_r(a) = G(a)\)。�
 
 \newpage
 
-\noindent \textbf{命题1}. (H\"older不等式) \ \ 设\(x, y \in \mathbb{R}^n,\quad p, q > 0,\quad \frac{1}{p} + \frac{1}{q} = 1 \)，则
-\begin{equation}
-    | x \cdot y | \le \|x\|_p\ \|y\|_q
-\end{equation}
+\begin{proposition}{H\"older不等式}{}
+    设\(x, y \in \mathbb{R}^n,\quad p, q > 0,\quad \frac{1}{p} + \frac{1}{q} = 1 \)，则
+    \begin{equation}
+        | x \cdot y | \le \|x\|_p\ \|y\|_q
+    \end{equation}
+\end{proposition}
 
-\noindent 证明：如果\(x = 0\) 或\(y = 0\)，（1）显然成立. 设\(x, y \neq 0\)，记
+\begin{proof}
+    如果\(x = 0\) 或\(y = 0\)，（1）显然成立. 设\(x, y \neq 0\)，记
 \begin{equation*}
     \hat{x} = \frac{x}{\|x\|_p},\quad \hat{y} = \frac{y}{\|y\|_q}
 \end{equation*}
@@ -168,39 +185,47 @@ Step 3. \ \ 显然，当\(a_1 = a_2 = \dots = a_n\) 时，\(m_r(a) = G(a)\)。�
     | x \cdot y | \le \sum_{i=1}^n | x^i |\ | y^i | \le \sum_{i=1}^n \left(\frac{ | x^i |^p }{p} + \frac{ | y^i |^q }{q}\right) = \frac{1}{p}\,\|x\|_p^p +\frac{1}{q}\,\|y\|_q^q = 1
 \end{equation*}
 这就证明了（1）式.\(\quad \square\)
+\end{proof}
 
 \vspace{20pt}
 
-Remarks.
-\begin{enumerate}
-    \item 在命题1的证明中，我们利用了H\"older不等式的齐性.
-    \item 容易证明，如果我们取\(p = 1,\ q = \infty \),\ H\"older不等式仍然成立.
-\end{enumerate}
+\begin{remark}
+    \begin{enumerate}
+        \item 在命题1的证明中，我们利用了H\"older不等式的齐性.
+        \item 容易证明，如果我们取\(p = 1,\ q = \infty \),\ H\"older不等式仍然成立.
+    \end{enumerate}
+\end{remark}
 
 \newpage
 
-\noindent \textbf{命题2}. (Minkowski不等式) \ \ 设\(x,y \in \mathbb{R}^n,\quad 1 \le p \le \infty \)，则
+\begin{proposition}{Minkowski不等式}{}
+    设\(x,y \in \mathbb{R}^n,\quad 1 \le p \le \infty \)，则
 \begin{equation}
     \|x + y\|_p \le \|x\|_p +\|y\|_p
 \end{equation}
+\end{proposition}
 
 \vspace{20pt}
 
-\noindent 证明：容易证明，当\(p = 1,\ \infty \) 时（2）式成立。下面证明\(1 < p < \infty \) 的情形。当\(x + y = 0\) 时，（2）式显然成立，因此，我们假设\(x + y \neq 0\).
+\begin{proof}
+    容易证明，当\(p = 1,\ \infty \) 时（2）式成立。下面证明\(1 < p < \infty \) 的情形。当\(x + y = 0\) 时，（2）式显然成立，因此，我们假设\(x + y \neq 0\).
 
 \vspace{10pt}
 
 \noindent 设\(\frac{1}{p} + \frac{1}{q} = 1\)，即\(q = \frac{p}{p - 1} \).\ 由 H\"older不等式
 \begin{align*}
-    \sum_{i=1}^n | x^i + y^i |^p &= \sum_{i=1}^n | x^i + y^i |^{p - 1}\ | x^i + y^i | \le \sum_{i=1}^n | x^i + y^i |^{p - 1}\ | x^i |+\sum_{i=1}^n | x^i + y^i |^{p - 1}\ | y^i | \\
+    \sum_{i=1}^n | x^i + y^i |^p &= \sum_{i=1}^n | x^i + y^i |^{p - 1}\ | x^i + y^i | \\
+    & \le \sum_{i=1}^n | x^i + y^i |^{p - 1}\ | x^i |+\sum_{i=1}^n | x^i + y^i |^{p - 1}\ | y^i | \\
     & \le \left( \sum_{i=1}^n | x^i + y^i |^{(p - 1)q} \right)^\frac{1}{q} \left\{\left(\sum_{i=1}^n | x^i |^\frac{1}{p}\right) + \left( \sum_{i=1}^n | y^i |^\frac{1}{p}   \right) \right\} \\
-    & \le \left( \sum_{i=1}^n | x^i + y^i |^p  \right)^\frac{p - 1}{p}\left\{\left( \sum_{i=1}^n | x^i |^p  \right)^\frac{1}{p} + \left( \sum_{i=1}^n | y^i |^p  \right)^\frac{1}{p}   \right\}
+    & \le \left( \sum_{i=1}^n | x^i + y^i |^p  \right)^\frac{p - 1}{p}\left\{\left( \sum_{i=1}^n | x^i |^p  \right)^\frac{1}{p} + \left( \sum_{i=1}^n | y^i |^p  \right)^\frac{1}{p} \right\}
 \end{align*}
+
 即
 \begin{equation*}
     \|x + y\|_p^p \le \|x + y\|_p^{p - 1}(\|x\|_p+\|y\|_p)
 \end{equation*}
 因此可得（2）.\(\quad \square\)
+\end{proof}
 
 \newpage
 
@@ -212,12 +237,16 @@ Remarks.
 
 \vspace{20pt}
 
-\noindent \textbf{命题3}. 设\(1 \le p_1, p_2 \le \infty \)，则向量的\(p_1\)-范数与\(p_2\)-范数等价.
+\begin{proposition}{}{}
+设\(1 \le p_1, p_2 \le \infty \)，则向量的\(p_1\)-范数与\(p_2\)-范数等价.
+\end{proposition}
+
 \vspace{20pt}
 
-\noindent 证明：设\(1 \le p < \infty \)，我们只需要证明向量的\(p\)-范数与\(\infty \)-范数等.
+\begin{proof}
+设\(1 \le p < \infty \)，我们只需要证明向量的\(p\)-范数与\(\infty \)-范数等.
 
-\noindent 设\(x \in \mathbb{R}^n\)，
+设\(x \in \mathbb{R}^n\)，
 \begin{equation*}
     | x^k |= \max_{1 \le i \le n }| x^i |
 \end{equation*}
@@ -228,10 +257,11 @@ Remarks.
     \le n^{\frac{1}{p} }| x^k |= n^{\frac{1}{p} }\|x\|_{\infty }
 \end{align*}
 因此，向量的\(p\)-范数与\(\infty \)-范数等价.\(\quad \square\)
+\end{proof}
 
 \newpage
 
-\noindent 练习1.
+练习1.
 
 \noindent (1) 求\(\lim_{r \to + \infty }m_r(a) \),
 
