@@ -7,6 +7,12 @@
 \usepackage{amssymb}
 \usepackage{tikz}
 \usepackage{ctex}
+\usepackage{parskip}
+\usepackage{analysis}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+
 \usetikzlibrary{arrows.meta, angles, quotes}
 
 
@@ -16,26 +22,28 @@
 
 \maketitle
 
-\section{n 维欧式空间}
-集合
-\begin{equation*}
-    R^n = \{x =(x^1,\dots,x^n);\quad x^i \in \mathbb{R},\quad  i = 1， \sim n\}
-\end{equation*}
-称为 n 维欧式空间（Euclidean n-space），其中 \(x =(x^1,\dots ,x^n)\) 称为 \(\mathbb{R}^n\) 中的点或向量，\(x^i, \quad i = 1 \sim n\) 称为点 x 的坐标或向量 x 的分量。记 \(O =(0,\dots ,0)\in \mathbb{R}^n\)，称 O 为坐标原点或零向量。
+\section{n维欧式空间}
+\begin{definition}{n维欧式空间}{}
+    集合
+    \begin{equation*}
+        R^n = \{x =(x^1,\dots,x^n);\quad x^i \in \mathbb{R},\quad  i = 1， \sim n\}
+    \end{equation*}
+    称为 n 维欧式空间（Euclidean n-space），其中 \(x =(x^1,\dots ,x^n)\) 称为 \(\mathbb{R}^n\) 中的点或向量，\(x^i, \quad i = 1 \sim n\) 称为点 x 的坐标或向量 x 的分量. 记 \(O =(0,\dots ,0)\in \mathbb{R}^n\)，称 O 为坐标原点或零向量.
+\end{definition}
 
 \vspace{10pt}
 
-设 \(x,y \in \mathbb{R}^n\)，我们通常用 \(x^i,y^i,z^i,\dots \)，表示向量 \(x,y,z,\dots \) 的分量，用 \(x_1,x_2,\dots \) 表示可能不同的向量。
+设 \(x,y \in \mathbb{R}^n\)，我们通常用 \(x^i,y^i,z^i,\dots \)，表示向量 \(x,y,z,\dots \) 的分量，用 \(x_1,x_2,\dots \) 表示可能不同的向量.
 
 \vspace{20pt}
 
-在 \(\mathbb{R}^n\) 中可以定义向量的加法和数乘运算。设 \(\alpha \in \mathbb{R}\),定义
+在 \(\mathbb{R}^n\) 中可以定义向量的加法和数乘运算. 设 \(\alpha \in \mathbb{R}\),定义
 \begin{align*}
     \alpha x &= (\alpha x^1,\dots ,\alpha x^n) \\
     x + y &= (x^1 + y^1,\dots ,x^n + y^n)
 \end{align*}
 
-在 \(\mathbb{R}^n\) 重定义了加法和数乘运算后，\(\mathbb{R}^n\) 成为一个 n 维线性空间。记
+在 \(\mathbb{R}^n\) 重定义了加法和数乘运算后，\(\mathbb{R}^n\) 成为一个 n 维线性空间. 记
 \begin{align*}
     e_1 &= (1,0,\dots ,0) \\
     e_2 &= (0,1,\dots ,0) \\
@@ -55,35 +63,39 @@
 
 \newpage
 
-下面回忆线性空间的几个常用名词。
+下面回忆线性空间的几个常用名词.
 
 \vspace{10pt}
 
-设 \(x,y \in \mathbb{R}^n\)。如果存在两个不全为零的实数 \(\alpha , \beta\)，使得 \(\alpha x +\beta y = 0\)，称 x，y 线性相关，否则称 x，y 线性无关/线性独立。容易证明：
+设 \(x,y \in \mathbb{R}^n\). 如果存在两个不全为零的实数 \(\alpha , \beta\)，使得 \(\alpha x +\beta y = 0\)，称 x，y 线性相关，否则称 x，y 线性无关/线性独立. 容易证明：
 \begin{align*}
     & \text{x,y线性相关} \\
-    \iff & \exists \;k \in \mathbb{R},\quad \text{s.t.} \quad x = ky\; \text{或}\; y = kx \\
+    \iff & \exists \;k \in \mathbb{R},\quad \text{s. t. } \quad x = ky\; \text{或}\; y = kx \\
     \iff & x^i y^j = x^j y^i,\qquad \forall \; i, j = 1 \sim n
 \end{align*}
 
-如果 x, y 线性相关，我们又称有序数组\((x^1,\dots ,x^n),\;(y^1,\dots ,y^n)\) 成比例。我们注意，“线性相关”这种二元关系具有对称性，即如果 x, y 线性相关，则 y, x 线性相关；但不具有传递性：
+如果 x, y 线性相关，我们又称有序数组\((x^1,\dots ,x^n),\;(y^1,\dots ,y^n)\) 成比例. 我们注意，“线性相关”这种二元关系具有对称性，即如果 x, y 线性相关，则 y, x 线性相关；但不具有传递性：
 \begin{center}
     x 与 y 线性相关，y 与 z 线性相关 \(\nRightarrow\) x,z 线性无关
 \end{center}
-这是因为零向量与任何向量都线性相关。
+这是因为零向量与任何向量都线性相关.
 
 \vspace{20pt}
 
-设\(x, y \neq 0\)，如果存在\(k \in \mathbb{R}\)，使得\(y = kx\)，我们称 x, y 平行，记为\(x // y\)。显然，x, y 线性相关当且仅当 x // y。如果存在\(k > 0\)，使得\(y = kx\)，我们称 x, y 平行且同向。
+设\(x, y \neq 0\)，如果存在\(k \in \mathbb{R}\)，使得\(y = kx\)，我们称 x, y 平行，记为\(x // y\). 显然，x, y 线性相关当且仅当 x // y. 如果存在\(k > 0\)，使得\(y = kx\)，我们称 x, y 平行且同向.
 
 \newpage
 
 \section{向量的内积，模和夹角}
-设\(x, y \in \mathbb{R}^n\)，定义
-\begin{equation*}
-    x \cdot y = \langle x , y \rangle =\sum_{i = 1}^n x^i y^i
-\end{equation*}
-称 \(x \cdot y\) 为向量 x, y 的内积。向量的内积满足如下基本性质：
+\begin{definition}{向量的内积}{}
+    设\(x, y \in \mathbb{R}^n\)，定义
+    \begin{equation*}
+        x \cdot y = \langle x ,\ y \rangle =\sum_{i = 1}^n x^i y^i
+    \end{equation*}
+    称 \(x \cdot y\) 为向量 x, y 的内积.
+\end{definition}
+
+向量的内积满足如下基本性质：
 \begin{enumerate}
     \item 非负性：\( \langle x, x \rangle \ge 0,\quad x \in \mathbb{R}^n, \quad \) "="成立当且仅当\(x = 0\)；
     \item 对称性：\( \langle x, y \rangle = \langle y, x \rangle ,\quad x, y \in \mathbb{R}^n\)；
@@ -91,11 +103,16 @@
 \end{enumerate}
 
 \vspace{20pt}
-设\(x \in \mathbb{R}^n\)，定义
-\begin{equation*}
-    | x |= \sqrt{x \cdot x} = \sqrt{\sum_{i=1}^n (x^i)^2 }
-\end{equation*}
-称\(| x |\) 为向量 x 的长度或模。向量的模满足如下基本性质：
+
+\begin{definition}{向量的模}{}
+    设\(x \in \mathbb{R}^n\)，定义
+    \begin{equation*}
+        | x |= \sqrt{x \cdot x} = \sqrt{\sum_{i=1}^n (x^i)^2 }
+    \end{equation*}
+    称\(| x |\) 为向量 x 的长度或模.
+\end{definition}
+
+向量的模满足如下基本性质：
 \begin{enumerate}
     \item 非负性：\(| x | \ge 0,\quad x \in \mathbb{R}^n, \quad \)“=”成立当且仅当\(x = 0\)；
     \item 非负齐性：\(| kx |= | k |\; | x |,\quad k \in \mathbb{R},\quad x \in \mathbb{R}^n\)；
@@ -104,50 +121,56 @@
 
 \newpage
 
-下面证明三角不等式。为此首先证明 Cauchy 不等式。
+下面证明三角不等式. 为此首先证明 Cauchy 不等式.
 
 \vspace{10pt}
 
-\noindent 命题1. (Cauchy不等式)
-
-设\(x, y \in \mathbb{R}^n\)，则\(| x \cdot y | \le | x |\; | y |,\  \) “=”成立当且仅当x, y线性相关。
-
-\vspace{20pt}
-
-\noindent 证明：因为
-\begin{align*}
-    \sum_{i=1}^n \sum_{j = 1}^n(x^i y^j - x^j y^i )^2 &=  \sum_{i = 1}^n \sum_{j = 1}^n ((x^i)^2(y^j)^2 + (x^j)^2(y^i)^2 - 2x^i y^i x^j y^j) \\
-    &= 2 \{| x |^2 | y |^2 - (x \cdot y)^2\}
-\end{align*}
-所以
-\begin{equation*}
-    | x |^2 | y |^2 - (x \cdot y)^2\ \ge 0
-\end{equation*}
-即\(| x \cdot y | \le | x |\; | y |, \ \)“=”成立当且仅当
-\begin{equation*}
-    x^i y^j = x^j y^i,\quad \forall \; i, j = 1 \sim n
-\end{equation*}
-即 x, y 线性相关。 \(\square\)
-
-\newpage
-
-\noindent 命题2. 设\(x, y \in \mathbb{R}^n\)，则\(| x + y | \le | x |+ | y |\)
+\begin{proposition}{Cauchy不等式}{}
+    设\(x, y \in \mathbb{R}^n\)，则\(| x \cdot y | \le | x |\; | y |,\  \) “=”成立当且仅当x, y线性相关.
+\end{proposition}
 
 \vspace{20pt}
 
-\noindent 证明：由Cauchy不等式
-\begin{equation*}
-    | x + y |^2 = | x |^2 + 2\;x \cdot y + | y |^2 \le | x |^2 + 2\; | x | \cdot | y | + | y |^2 = (| x |+ | y |)^2
-\end{equation*}
-由此可得\(| x + y | \le | x |+ | y |.\quad \square\)
+\begin{proof}
+    因为
+    \begin{align*}
+        \sum_{i=1}^n \sum_{j = 1}^n(x^i y^j - x^j y^i )^2 &=  \sum_{i = 1}^n \sum_{j = 1}^n ((x^i)^2(y^j)^2 + (x^j)^2(y^i)^2 - 2x^i y^i x^j y^j) \\
+        &= 2 \{| x |^2 | y |^2 - (x \cdot y)^2\}
+    \end{align*}
+    所以
+    \begin{equation*}
+        | x |^2 | y |^2 - (x \cdot y)^2\ \ge 0
+    \end{equation*}
+    即\(| x \cdot y | \le | x |\; | y |, \ \)“=”成立当且仅当
+    \begin{equation*}
+        x^i y^j = x^j y^i,\quad \forall \; i, j = 1 \sim n
+    \end{equation*}
+    即 x, y 线性相关.  \(\square\)
+\end{proof}
 
 \newpage
 
-在\(\mathbb{R}^n\) 中定义了内积之后，我们就可以定义两个向量的夹角。设\(x, y \in \mathbb{R}^n\)，由 Cauchy不等式，存在\(\theta \in [0, \pi]\)，使得
+\begin{proposition}{}{}
+    命题2.  设\(x, y \in \mathbb{R}^n\)，则\(| x + y | \le | x |+ | y |\)
+\end{proposition}
+
+\vspace{20pt}
+
+\begin{proof}
+    由Cauchy不等式
+    \begin{equation*}
+        | x + y |^2 = | x |^2 + 2\;x \cdot y + | y |^2 \le | x |^2 + 2\; | x | \cdot | y | + | y |^2 = (| x |+ | y |)^2
+    \end{equation*}
+    由此可得\(| x + y | \le | x |+ | y |. \quad \square\)
+\end{proof}
+
+\newpage
+
+在\(\mathbb{R}^n\) 中定义了内积之后，我们就可以定义两个向量的夹角. 设\(x, y \in \mathbb{R}^n\)，由 Cauchy不等式，存在\(\theta \in [0, \pi]\)，使得
 \begin{equation*}
     x \cdot y =| x |\; | y | \cos \theta
 \end{equation*}
-称\(\theta \) 为 x, y 的夹角。如果\(\theta = 90^\circ\)，即\(x \cdot y = 0\)，称 x, y 垂直或正交，记为\(x \perp y\)。单位坐标向量是相互正交的：
+称\(\theta \) 为 x, y 的夹角. 如果\(\theta = 90^\circ\)，即\(x \cdot y = 0\)，称 x, y 垂直或正交，记为\(x \perp y\). 单位坐标向量是相互正交的：
 \begin{equation*}
     e_i \cdot e_j =\delta_{ij} =
     \begin{cases}
@@ -156,19 +179,19 @@
     \end{cases}
     \qquad i,j = 1 \sim n
 \end{equation*}
-这里\(\delta_{ij}\) （有时也记为\(\delta_i^j\)）称为 Kronecker 记号。
+这里\(\delta_{ij}\) （有时也记为\(\delta_i^j\)）称为 Kronecker 记号.
 
 \newpage
 
 \section{平行四边形的面积，平行多面体的体积}
-在\(\mathbb{R}^n\) 中，利用向量的内积和模，我们可以定义平行四边形的面积和平行多面体的体积。我们首先回忆\(\mathbb{R}^3\) 中平行四边形的面积和平行六面体的体积的计算公式。
+在\(\mathbb{R}^n\) 中，利用向量的内积和模，我们可以定义平行四边形的面积和平行多面体的体积. 我们首先回忆\(\mathbb{R}^3\) 中平行四边形的面积和平行六面体的体积的计算公式.
 
 \vspace{20pt}
 \noindent 设\(P \subset \mathbb{R}^3 \) 是一个以\(x, y \in \mathbb{R}^3\) 为邻边的平行四边形，则 P 的面积
 \begin{equation*}
     S(p) = |x|\; |y| \sin \theta = \sqrt{ |x|^2 |y|^2 - |x|^2 |y|^2 \cos^2\theta} = \sqrt{ |x|^2 |y|^2 -(x \cdot y)^2}
 \end{equation*}
-其中\(\theta \) 是 x, y 的夹角。
+其中\(\theta \) 是 x, y 的夹角.
 
 \vspace{20pt}
 
@@ -190,10 +213,10 @@
         \draw[->] (O) -- (Y) node[midway, left] {$y$};
 
         % 在左下角标明角度θ
-        \pic [draw, angle radius=0.5cm, "$\theta$" font=\footnotesize, angle eccentricity=1.3] {angle = X--O--Y};
+        \pic [draw, angle radius=0. 5cm, "$\theta$" font=\footnotesize, angle eccentricity=1. 3] {angle = X--O--Y};
 
         % 添加说明文字
-        \node at (1.5,-1) {以 $x$, $y$ 为邻边的平行四边形P};
+        \node at (1. 5,-1) {以 $x$, $y$ 为邻边的平行四边形P};
     \end{tikzpicture}
 \end{center}
 
@@ -203,7 +226,7 @@
 \begin{equation*}
     V(Q) = |(x_1 \times x_2) \cdot x_3| = |det A| = \sqrt{det A^T A} = \sqrt{det(x_i \cdot x_j)_{3 \times 3}}
 \end{equation*}
-这里 A 表示以\(x_1,x_2,x_3 \in \mathbb{R}^3\) 为列向量的矩阵。
+这里 A 表示以\(x_1,x_2,x_3 \in \mathbb{R}^3\) 为列向量的矩阵.
 
 \vspace{20pt}
 
@@ -212,11 +235,11 @@
         % 设置坐标系
         \def\a{2} % x轴方向长度
         \def\b{2} % y轴方向长度
-        \def\c{1.5} % z轴方向长度
+        \def\c{1. 5} % z轴方向长度
 
         % 定义正交投影的变换矩阵
         \pgfsetxvec{\pgfpoint{1cm}{0cm}}
-        \pgfsetyvec{\pgfpoint{0.5cm}{0.7cm}}
+        \pgfsetyvec{\pgfpoint{0. 5cm}{0. 7cm}}
         \pgfsetzvec{\pgfpoint{0cm}{1cm}}
 
         % 定义顶点
@@ -249,37 +272,41 @@
 
 \newpage
 
-设 \(x, y, a \in \mathbb{R}^n\)。记
+设 \(x, y, a \in \mathbb{R}^n\). 记
 \begin{equation*}
     P = \{a + sx + ty\quad 0 < s, t < 1\}
 \end{equation*}
-称 P 为平行四边形。记
+称 P 为平行四边形. 记
 \begin{equation*}
     S(P) = \sqrt{|x|^2|y|^2 - (x \cdot y)^2}
 \end{equation*}
-称 S(P) 为 P 的面积
+称 S(P) 为 P 的面积.
 
 \vspace{30pt}
 
-设\(x_1,\dots ,x_n, a \in \mathbb{R}^n\)。记
+设\(x_1,\dots ,x_n, a \in \mathbb{R}^n\). 记
 \begin{equation*}
     Q = \left\{a + \sum_{i = 1}^n s_i x_i\quad 0 < s_i < 1,\quad i = 1 \sim n\right\}
 \end{equation*}
-称 Q 为平行 2n - 面体。记
+称 Q 为平行 2n - 面体. 记
 \begin{equation*}
     V(Q) = \sqrt{det(x_i \cdot x_j)_{n \times n}}
 \end{equation*}
-称 V(Q) 为 Q 的体积。
+称 V(Q) 为 Q 的体积.
 
 \newpage
 
 \section{距离函数}
 
-定义\(d:\quad \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}\)
-\begin{equation*}
-    d(x, y) = |x - y|,\quad x,y \in \mathbb{R}^n
-\end{equation*}
-称 d 为距离函数。距离函数 d 满足如下基本性质：
+\begin{definition}{}{}
+    定义\(d:\quad \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}\)
+    \begin{equation*}
+        d(x, y) = |x - y|,\quad x,y \in \mathbb{R}^n
+    \end{equation*}
+    称 d 为距离函数.
+\end{definition}
+
+距离函数 d 满足如下基本性质：
 \begin{enumerate}
     \item 非负性：\(d(x, y) \ge 0,\quad x, y \in \mathbb{R}^n,\quad \)“=”成立当且仅当\(x = y\)；
     \item 对称性：\(d(x, y) = d(y, x),\quad x, y \in \mathbb{R}^n\)；
@@ -288,15 +315,15 @@
 
 \vspace{10pt}
 
-在\(\mathbb{R}^n\) 中定义了距离函数 d 之后，\(\mathbb{R}^n\) 成为一个度量空间（metric space）。利用距离函数，我们就可以在\(\mathbb{R}^n\) 中定义极限运算。关于度量空间的概念，请参见 \textit{Principle of Math Analysis, Chapter 2, W.Rudin.}
+在\(\mathbb{R}^n\) 中定义了距离函数 d 之后，\(\mathbb{R}^n\) 成为一个度量空间（metric space）. 利用距离函数，我们就可以在\(\mathbb{R}^n\) 中定义极限运算. 关于度量空间的概念，请参见 \textit{Principle of Math Analysis, Chapter 2, W. Rudin. }
 
 \newpage
 
-练习1. 设\(A \in \mathbb{R}^n,\quad r \in \mathbb{R},\quad r \neq 0\)。记
+练习1.  设\(A \in \mathbb{R}^n,\quad r \in \mathbb{R},\quad r \neq 0\). 记
 \begin{equation*}
     r A = \{rx;\quad x \in A\}
 \end{equation*}
-设\(P \subset \mathbb{R}^n\) 为平行四边形，\(Q \subset \mathbb{R}^n\) 为平行 2n - 面体。证明：
+设\(P \subset \mathbb{R}^n\) 为平行四边形，\(Q \subset \mathbb{R}^n\) 为平行 2n - 面体. 证明：
 \begin{align*}
     S(r P) &=  r^2S(p), \\
     V(r Q) &= |r|^n V(Q)
@@ -304,22 +331,22 @@
 
 \vspace{10pt}
 
-练习2. 给出命题2中“=”成立的条件。
+练习2.  给出命题2中“=”成立的条件.
 
 \vspace{30pt}
 
-练习3. 设\(x, y, z \in \mathbb{R}^n\)，证明\(|x - y|= |x - z|+ |z - y|\) 当且仅当\(z =(1 - \theta )x + \theta y\)，其中\(\theta \in [0,1]\).
+练习3.  设\(x, y, z \in \mathbb{R}^n\)，证明\(|x - y|= |x - z|+ |z - y|\) 当且仅当\(z =(1 - \theta )x + \theta y\)，其中\(\theta \in [0,1]\).
 
 \vspace{30pt}
 
-练习4. 设\(u, v \in \mathbb{R}^n,\quad |u|= |v| = 1\)，证明：\(u = v \iff u \cdot v = 1\)
+练习4.  设\(u, v \in \mathbb{R}^n,\quad |u|= |v| = 1\)，证明：\(u = v \iff u \cdot v = 1\)
 
 \vspace{30pt}
 
-练习5. 设\(v, e \in \mathbb{R}^n,\quad |e|= 1\)，证明：\(v \cdot e = |v| \iff v = |v|e\)
+练习5.  设\(v, e \in \mathbb{R}^n,\quad |e|= 1\)，证明：\(v \cdot e = |v| \iff v = |v|e\)
 
-\vspace{30pt}
+\vspace{20pt}
 
-练习6. 证明：在\(\mathbb{R}^n\) 中，在正交变换下平行四边形的面积和平行 2n - 面体的体积不变。
+练习6.  证明：在\(\mathbb{R}^n\) 中，在正交变换下平行四边形的面积和平行 2n - 面体的体积不变.
 
 \end{document}
