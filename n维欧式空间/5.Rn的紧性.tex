@@ -1,0 +1,190 @@
+\documentclass{article}
+
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{parskip}
+\renewcommand{\labelenumi}{(\roman{enumi})} % 使用小写罗马数字
+
+
+\title{\(\mathbb{R}^n\) 的紧性}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{欧式空间的紧性}
+在这一节，我们讲述\(\mathbb{R}^n\) 的紧性. 首先引入一些概念. 记
+\begin{equation*}
+    2^{\mathbb{R}^n} = \{S;\quad S \subset \mathbb{R}^n\}
+\end{equation*}
+设\(\mathcal{U} \subset 2^{\mathbb{R}^n},\quad \mathcal{U} \neq  \varnothing,\quad A \subset \mathbb{R}^n \). 如果
+\begin{equation*}
+    A \subset \bigcup_{S \in \mathcal{U}} S
+\end{equation*}
+称\(\mathcal{U}\) 覆盖\(A\).\ \ 设\(\mathcal{U}\) 覆盖\(A\). 如果\(\mathcal{U}\) 为有限集，称\(\mathcal{U}\) 为\(A\) 的有限覆盖. 如果\(\mathcal{U}\) 中的集合均为开集，称\(\mathcal{U}\) 为\(A\) 的开覆盖. 设\(\mathcal{V} \subset  \mathcal{U}\)，如果\(\mathcal{V}\) 也覆盖\(A\)，称\(\mathcal{V}\) 是\(\mathcal{U}\) 的（相对于\(A\) 的）子覆盖.
+
+\vspace{20pt}
+
+\textbf{定义1}.\ \ 设\(A \subset \mathbb{R}^n\). 如果\(A\) 的每个开覆盖都有一个有限的子覆盖，则称\(A\) 为紧集.
+
+\vspace{10pt}
+
+\textbf{定义2}.\ \ 设\(A \subset \mathbb{R}^n\) 满足：如果\(x_k \in A,\quad k = 1,2,\dots \)则存在\(\{x_k\} \) 的子列\(\{x_{k_i}\} \)，使得\(x_{k_i} \to a \in A\)，称\(A\) 为自列紧集.
+
+\vspace{10pt}
+
+\textbf{定义3}.\ \ 设\(A \subset \mathbb{R}^n\) 满足：如果\(B \subset A\) 为无限集，则\(B\) 有聚点\(a \in A\)，称\(A\) 为Fréchet紧集.
+
+
+\vspace{20pt}
+
+例如，如果\(A \subset \mathbb{R}^n\) 为有限集，则\(A\) 为紧集，自列紧集和Fréchet紧集.
+
+\newpage
+
+下面我们证明，在欧式空间中，紧集，自列紧集和Fréchet紧集等价，并且都等价于有界闭集.
+
+\vspace{20pt}
+
+定理1.\ \ 设\(K \subset \mathbb{R}^n\). 下列叙述等价：\newline
+(a) \(K\) 为有界闭;\newline
+(b) \(K\) 为紧集;\newline
+(c) \(K\) 为自列紧集；\newline
+(d) \(K\) 为Fréchet紧集.
+
+\newpage
+
+证明：
+
+\((a) \implies (b)\).\ \ 首先引入几个名词. 设\(Q = \prod_{i=1}^n [a_i,b_i],\quad a_i,\ b_i \in \mathbb{R},\quad a_i < b_i,\quad i = 1 \sim n\)，称\(Q\) 为闭方体.记
+\begin{align*}
+    c_i &= \frac{(a_i + b_i)}{2} \\
+    I_i^1 &=[a_i,c_i],\quad I_i^2 =[c_i,b_i]
+\end{align*}
+称\(\prod_{i=1}^n I_i^{\alpha _{i}},\quad a_i = 1,\ 2\) 为\(Q\) 的二进方体.
+
+\vspace{10pt}
+
+显然，闭方体是有界闭集. 下面我们首先证明闭方体是紧集. 设\(Q \subset \mathbb{R}^n\) 是一个闭方体，\(\mathcal{U}\) 是\(Q\) 的一个开覆盖，我们证明\(Q\) 能被\(\mathcal{U}\) 中有限个开集覆盖.
+
+\vspace{20pt}
+
+反证法.\ \ 假设\(Q\) 不能被\(\mathcal{U}\) 中有限个开集覆盖，则必存在\(Q\) 的一个二进方体\(Q_1,\ Q_1\) 不能被\(\mathcal{U}\) 中有限个开集覆盖. 同理，因为\(Q_1\) 不能被\(\mathcal{U}\) 中有限个开集覆盖，则必存在\(Q_1\) 的一个二进方体\(Q_{2},\ Q_2\) 不能被\(\mathcal{U}\) 中有限个开集覆盖. 重复这个过程，我们得到一列闭方体\(Q_i,\quad i = 1,2,\dots \)\ 其中\(Q_{i + 1}\) 是\(Q_i\) 的二进方体，并且每个\(Q_i\) 不能被\(\mathcal{U}\) 中有限个开集覆盖.
+
+\vspace{10pt}
+
+因为\(Q_{i + 1} \subset Q_{i}\)，并且
+\begin{equation*}
+    diam\ Q_i = 2^{ - i}\ diam\ Q \to 0
+\end{equation*}
+由闭集套定理，\(\cap _{i = 1}^{ + \infty }Q_i = \{a\} \). 因为\(a \in Q\)，所以存在\(U \in \mathcal{U}\)，使得\(a \in U\). 因为\(U\) 是开集，存在\(\varepsilon > 0\)，使得\(B_{\varepsilon }(a)\subset U\). 因为\(diam\ Q_i \to 0\)，存在\(N \in \mathbb{N}^{*}\)，使得\(diam\ Q_N < \varepsilon \)，则\(Q_{N} \subset B_{\varepsilon }(a)\)，从而\(Q_N \subset U\)，这与\(Q_N\) 不能被\(\mathcal{U}\) 中有限个开集覆盖矛盾. 因此，假设不成立，所以\(Q\) 能被\(\mathcal{U}\) 中有限个开集覆盖. 这就证明了\(Q\) 是紧集.
+
+\vspace{10pt}
+
+设\(K\) 是有界闭集. 下面证明\(K\) 为紧集. 设\(K \subset B_R\)，则\(K \subset Q =[ - R,\ R]^{n}\). 设\(\mathcal{U}\) 是\(K\) 的一个开覆盖，则\(U \cup \{K^c\} \) 覆盖\(\mathbb{R}^n\)，从而\(U \cup \{K^c\} \) 覆盖闭方体\(Q\)，因此存在\(U_i \in \mathcal{U},\quad i = 1,2,\cdots ,N\)，使得\(\{U_1,\cdots,U_N,\ K^{c} \} \) 覆盖\(Q\)，从而\(\{U_1,\cdots ,U_N,\ K^{c} \}\) 覆盖\(K\). 因为\(K^{c} \cap K = \varnothing \)，所以\(\{U_1,\cdots,U_{N}\}\) 覆盖\(K\). 这就证明了\(K\) 为紧集.
+
+\newpage
+
+\((b) \implies (c)\)\ \ 设\(K \subset \mathbb{R}^n\) 为紧集.\ 设\(x_i \in K,\quad i = 1,2,\dots \)\ 下面证明存在\(a \in K\)，使得\(a\) 是\(\{x_i\} \) 的某个子列的极限. 反证法.\ \ 假设对任意\(a \in K\)，\(a\) 都不是\(\{x_i\} \) 的某个子列的极限.\ 设\(a \in K\)，则必存在一个以\(a\) 为心的开球\(B(a)\)，以及\(N_a \in \mathbb{N}^{*}\)，使得
+\begin{equation*}
+    x_i \notin B(a),\quad \forall\ i \ge N_a
+\end{equation*}
+否则，我们就可以用迭子列的方法，找到一个\(\{x_i\} \) 的子列\(\{x_{i_j}\}\)，使得\(x_{i_j}\to a\). 由于\(\{B(a);\quad a \in K\} \) 覆盖\(K\)，存在\(a_j \in K,\quad j = 1,2,\cdots,m \)，使得\(K \subset \bigcup_{i = 1}^{m}B(a_{j})\). 令\(N = \max \{N_{a_1},\cdots,N_{a_m}\} \)，则\(x_{N} \notin \bigcup_{i = 1}^{m}B(a_j)\)，从而\(x_N \notin K\)，矛盾. 所以假设不成立. 因此，必存在\(a \in K\)，使得\(a\) 是\(\{x_i\} \) 的某个子列的极限. 这就证明了\(K\) 为自列紧集.
+
+\newpage
+
+\((c) \implies (d)\)\ \ 设\(K \subset \mathbb{R}^n\) 为自列紧集. 设\(A \subset K\) 为无限集，则存在点列\(\{x_i\}\)，\(x_i \in A,\quad i = 1,2,\dots \)\ 使得
+\begin{equation*}
+    x_i \neq x_j,\quad \forall\ i,\ j = 1,2,\cdots, \quad i \neq j
+\end{equation*}
+由于\(K \subset \mathbb{R}^n\) 为自列紧集，存在\(\{x_i\} \) 的一个子列\(\{x_{i_j}\},\quad x_{i_j}\to a \in K\).\newline
+下面证明\(a\) 是\(A\) 的聚点.\ \ 设\(r > 0\)，则存在\(N \in \mathbb{N}^{*}\)，使得
+\begin{equation*}
+    x_{i_j} \in B_r(a),\quad \forall\ j \ge N
+\end{equation*}
+特别地，\(x_{i_N},\ x_{i_{N + 1}}\in B_r(a)\). 因为\(x_{i_N} \neq x_{i_{N + 1}}\)，所以\(x_{i_N} \neq a\) 或\(x_{i_{N + 1}} \neq a\)，又因为\(x_{i_N},\ x_{i_{N + 1}}\ \in A\)，所以
+\begin{equation*}
+    A \cap \left(B_r(a)\setminus \{a\} \right) \neq \varnothing
+\end{equation*}
+这就证明了\(a\) 是\(A\) 的聚点，因此\(K\) 是Fréchet紧集.
+
+\newpage
+
+\((d) \implies (a)\)\ \ 设\(K\) 为Fréchet紧集，下面证明\(K\) 为有界闭集.\ 首先证明\(K\) 有界. 反证法.\ \ 假设\(K\) 无界，则存在\(x_i \in K\) ，使得\(| x_i | \ge i,\quad i = 1,2,\dots  \) 令\(A = \{x_i\quad i = 1,2,\dots \} \)，则\(A\) 无界，因此\(A\) 为无限集. 下面证明\(A\) 没有聚点. 设\(a \in \mathbb{R}^n\). 下面证明\(a\) 不是\(A\) 的聚点.\ \ 设\(| a | \le N \)，其中\(N \in \mathbb{N}^{*}\)，对于任意\(x \in B_1(a),\quad | x | \le N + 1 \). 因此
+\begin{equation*}
+    x_i \notin B_1(a),\quad \forall\ i \ge N + 2
+\end{equation*}
+令
+\begin{equation*}
+    d = \min \{| x_i - 1 |;\quad 1 \le i \le N + 1,\quad x_i \neq a \}
+\end{equation*}
+则\(d > 0\)，且
+\begin{equation*}
+    x_i \neq B_d(a)\setminus \{a\},\quad \forall\ 1 \le i \le N + 1
+\end{equation*}
+令\(\varepsilon = \min \{1,d\} \)，则\(A \cap B_{\varepsilon }(a)\setminus \{a\} = \varnothing  \)，因此\(a\) 不是\(A\) 的聚点，这就证明了\(A\) 没有聚点，这与\(K\) 为Fréchet紧集矛盾，所以假设不成立. 因此，\(K\) 有界.
+
+\vspace{20pt}
+
+下面证明\(K\) 为闭集.\ 反证法.\ \ 假设\(K\) 不是闭集，则存在\(x_i \in K,\quad i = 1,2,\dots \)\ 使得\(x_i \to a,\quad a \notin K\). 令\(A = \{x_i,\quad i = 1,2,\dots \} \). 因为\(x_i \to a\) 且\(x_i \neq a,\quad i = 1,2,\dots \)\ 所以\(A\) 为无限集. 下面证明对于任意\(b \in K\)，\(b\) 不是\(A\) 的聚点. 设\(b \in K\). 记\(r = \frac{| b - a | }{3}  \)，则\(r > 0 \). 因此，存在\(N \in \mathbb{N}^{*}\)，使得
+\begin{equation*}
+    x_i \in B_r, \quad \forall\ i \ge N
+\end{equation*}
+这意味着
+\begin{equation*}
+    x_i \notin B_r(b),\quad \forall\ i \ge N
+\end{equation*}
+令
+\begin{equation*}
+    d = \min \{| x_i - b |,\quad 1 \le i \le N,\quad x_i \neq b \}
+\end{equation*}
+则\(d > 0\)，且
+\begin{equation*}
+    x_i \notin B_d(b)\setminus \{b\},\quad \forall\ 1 \le i \le N
+\end{equation*}
+令\(\varepsilon = \min \{r,d\} \)，则\(A \cap \left( B_{\varepsilon }(b)\setminus \{b\}  \right) = \varnothing  \). 因此，\(b\) 不是\(A\) 的聚点. 这就证明了对于任意\(b \in K\)，\(b\) 不是\(A\) 的聚点. 这与\(K\) 为Fréchet紧集矛盾. 因此假设不成立，所以\(K\) 是闭集.
+
+\vspace{20pt}
+
+这就证明了定理1. \(\quad \square\)
+
+\newpage
+
+\section{闭集套定理}
+利用紧集的概念，我们给出如下形式的闭集套定理.
+
+\vspace{20pt}
+
+\textbf{定理2}.\ \ 设\(K_i \subset \mathbb{R}^n\) 为非空的紧集，\(K_i \subset K_{i + 1},\quad i = 1,2,\dots \)\ \ 则\(\bigcap_{i = 1}^{ + \infty }K_i \neq \varnothing \).
+
+\vspace{20pt}
+
+证明：反证法.\ \ 假设\(\bigcap_{i = 1}^{ + \infty } = \varnothing \)，则\(\mathbb{R}^n = \bigcup_{i = 1}^{ + \infty }K_i^c\). 这意味着\(K_1 \subset \bigcup_{i = 1}^{ + \infty }K_i^c\). 因此，存在\(K_{i_1},K_{i_{2}},\cdots,K_{i_{m}}\)，使得\(K_1 \subset \bigcup_{j = 1}^{m}K_{i_j}^{c} \). 令\(N = \max \{i_1,\cdots ,i_m\} \)，则\(K_1 \subset \bigcup_{i = 1}^{N}K_i^{c} \). 由于
+\begin{equation*}
+    \bigcup_{i = 1}^{N}K_i^{c} = \left( \bigcap_{i = 1}^{N}K_i \right)^{c} = K_N^{c}
+\end{equation*}
+所以\(K_1 \subset K_N^{c} \)，则\(K_1 \cap K_N = K_N = \varnothing \)，这与已知\(K_N \neq \varnothing \) 矛盾. 因此，假设不成立. 所以\(\bigcap_{i = 1}^{ + \infty }K_i \neq \varnothing.\quad \square \)
+
+\newpage
+
+练习1.\ \ 设\(K \subset \mathbb{R}^n\) 为紧集，证明：\(K \cap A\) 为紧集.
+
+\vspace{20pt}
+
+练习2.\ \ 设\(A \subset \mathbb{R}^n\) 满足：如果\(x_k \in A,\quad k = 1,2,\dots \)\ \ 则\(\{x_k\}\) 有收敛的子列，称\(A\) 为列紧集. 证明：\(A \subset \mathbb{R}^n\) 为列紧集当且仅当\(A\) 有界.
+
+\vspace{20pt}
+
+练习3.\ \ 设\(\mathcal{U} \subset 2^{\mathbb{R}^n},\quad \mathcal{U} \neq \varnothing \). 证明：如果
+\begin{enumerate}
+    \item \(\forall\ k \in \mathcal{U},\ K\) 为非空的紧集；
+    \item 如果\(K_i \in \mathcal{U},\quad i = 1,2,\cdots,m\) ，则\(\bigcap_{i = 1}^{m} \neq \varnothing \).
+\end{enumerate}
+
+则\ \(\bigcap_{K \in \mathcal{U}}K \neq \varnothing .\)
+
+
+\end{document}

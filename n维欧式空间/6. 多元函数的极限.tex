@@ -1,0 +1,113 @@
+\documentclass{article}
+
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{parskip}
+\renewcommand{\labelenumi}{(\roman{enumi})} % 使用小写罗马数字
+
+\title{多元函数的极限}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{多元向量值函数的极限}
+设\(f:\quad D \subset \mathbb{R}^n \to \mathbb{R}^{m}\). 我们通常称\(f\) 为多元向量值函数；如果\(m = 1\)，我们也称\(f\) 为多元数值函数. 记
+\begin{equation*}
+    f = \left( f^1,\cdots,f^m \right)
+\end{equation*}
+其中\(f^i:\quad D \subset \mathbb{R},\quad i = 1,2,\dots \quad \) m称为\(f\) 的分量.
+
+\vspace{10pt}
+
+一元函数的极限的定义和性质，可以毫无困难地推广到多元函数.
+
+\vspace{10pt}
+
+\textbf{定义1}.\ \ 设\(f:\quad \mathbb{R}^n\to \mathbb{R}^{m},\ x_0in \mathbb{R}^n\)为\(D\) 的聚点. 如果存在\(a \in \mathbb{R}^{m}\) 满足：对于任意\(\varepsilon > 0\)，存在\(\delta > 0\)，使得
+\begin{equation*}
+    | f(x) - a |< \varepsilon ,\quad \forall\ x \in D \cap \left( B_{\delta }\setminus \{x_0\}  \right)
+\end{equation*}
+称\(f\) 在\(x_0\) 点有极限，称\(a\) 是\(f\) 在\(x_0\) 点的极限.
+
+\vspace{10pt}
+
+容易证明，如果\(f\) 在\(x_0\) 点有极限，极限必唯一. 我们记\(f\) 在\(x_0\) 点的极限为\(\lim_{x \to x_0} f(x) \). 如果\(a = \lim_{x \to x_0}f(x)\)，我们也记
+\begin{equation*}
+    f(x) \to a,\quad \text{当}\ x \to x_0\ \text{时}
+\end{equation*}
+
+\newpage
+
+Remarks：\newline
+(1)\ \ 在定义1中，我们可以看到，\(f\) 在\(x_0\) 点的极限与\(f\) 在\(x_0\) 点是否有定义没有关系，即使\(f\) 在\(x_0\) 点有定义，\(f\) 在\(x_0\) 点的极限也和\(f\) 在\(x_0\) 点的函数值没有关系.
+
+\vspace{10pt}
+
+(2)\ \ 记
+\begin{equation*}
+    E_r = \supset \{| f(x) - a |;\quad x \in D \cap \left( B_r(x_0)\setminus \{x_0\}  \right) \}
+\end{equation*}
+\(E_{r}\) 表示\(f\) 在\(D \cap (B_r(x_0)\setminus \{x_0\} )\) 上与\(a\) 的整体误差. 则\(a\) 是\(f\) 在\(x_0\) 点的极限当且仅当
+\begin{equation*}
+    \lim_{r \to 0} E_r = 0
+\end{equation*}
+
+\vspace{10pt}
+
+(3)\ \ 在\(\mathbb{R}^{m}\) 中向量的\(2\)-范数与\(\infty \)-范数等价，因此\(f\) 在\(x_0\) 点的极限可以转化为\(f\) 的分量在\(x_0\) 点的极限
+\begin{equation*}
+    a = \lim_{x \to x_0}f(x) \iff a^i = \lim_{x \to x_0}f^i(x),\quad \forall\ i = 1,2,\dots ,m
+\end{equation*}
+
+\newpage
+
+与一元函数的极限类似，函数在一点的极限可以转化为点列的极限，这就是 Henie 归结原理。
+
+\vspace{10pt}
+
+\textbf{命题1}.\ (Heine 归结原理)\ \ 设\(f:\quad D \subset \mathbb{R}^n\to \mathbb{R}^{m},\ x_0 \in \mathbb{R}^n\)为\(D\) 的聚点.
+\begin{enumerate}
+    \item 如果\(\lim_{x \to x_0}f(x) = a \in \mathbb{R}^{m} \)，则对任意点列\(\{x_i\},\ x_i \in D\setminus \{x_0\},\quad i = 1,2,\dots \quad x_i \to x_0 \)，都有\(\lim_{i \to \infty }f(x_i) = a \).
+    \item 如果对于任意点列\(\{x_i\},\ x_i \in D\setminus \{x_0\},\quad i = 1,2,\dots \quad x_i \to x_0  \)，点列\(\{f(x_i)\} \) 都收敛，则\(f\) 在\(x_0\) 点有极限.
+\end{enumerate}
+
+\vspace{10pt}
+
+证明：
+(i)\ \ 设\(\varepsilon > 0\)，则存在\(\delta > 0\) ，使得
+\begin{equation*}
+    | f(x) - a | < \varepsilon ,\quad \forall\ x \in D \cap (B_{\varepsilon }(x_0)\setminus \{x_0\} )
+\end{equation*}
+由于\(x_i \to x_0\)，存在\(N \in \mathbb{N}^{*}\)，使得当\(i \ge N\) 时，\(| x_i - x_0 |< \varepsilon  \)，则当\(i \ge N\) 时，\(x_i \in D \cap \left( B_{\varepsilon }(x_0)\setminus \{x_0\}  \right) \)，从而\(| f(x_i) - a |< \varepsilon  \). 因此\(\lim_{i \to + \infty } = a \).
+
+\vspace{10pt}
+
+(ii)\ \ 因为\(x_0\) 是\(D\) 的聚点，因此，存在\(a_i \in D\setminus \{x_0\},\quad i = 1,2,\dots  \)\ 使得\(a_i \to x_0\).  设\(f(a_i) \to y_0\). 下面证明\(y_0\) 是\(f\) 在\(x_0\) 点的极限.
+
+\vspace{10pt}
+
+反证法.\ \ 假设\(y_0\) 不是\(f\) 在\(x_0\) 点的极限，则存在\(\varepsilon > 0\)，使得对于任意\(\varepsilon > 0\)，存在\(x \in D \cap \left( B_{\varepsilon }(x_0)\setminus \{x_0\}  \right) \) 满足\(| f(x) - y_0 | \ge \varepsilon  \). 取\(\delta = \frac{1}{i},\quad i = 1,2,\dots  \)\ 我们得到\(b_i \in D \cap \left( B_{\frac{1}{i} }(x_0)\setminus \{x_0\}  \right),\quad | f(b_i) - yo | \ge \varepsilon ,i = 1,2,\dots   \)\ 这样我们得到点列\(\{b_i\},b_i \in D\setminus \{x_0\},\quad i = 1,2,\dots \ b_i \to x_0  \)，但是\(f(b_i) \not\to y_0\). 由已知，\(\{f(b_i)\} \) 收敛. 设\(f(b_i)\to y_1,\ y_1 \neq y_0\). 令
+\begin{equation*}
+    c_{2i - 1} = a_i,\ c_{2i} = b_i,\quad i = 1,2,\dots
+\end{equation*}
+则\(c_i \in D\setminus \{x_0\},\quad i = 1,2,\dots \ \ c_i \to x_0 \). 由于
+\begin{align*}
+    f(c_{2i - 1}) &= f(a_i) \to y_0 \\
+    f(c_{2i}) = f(b_i) \to y_1
+\end{align*}
+所以\(\{f(c_i)\} \) 不收敛，这与已知条件矛盾. 因此，假设不成立，所以\(y_0\) 是\(f\) 在\(x_0\) 点的极限. \(\quad \square\)
+
+\newpage
+
+\section{函数极限的性质}
+\textbf{定义2}.\ \ 设\(f:\quad A \to \mathbb{R}^{m}\). 如果存在\(M \in \mathbb{R}\)，使得
+\begin{equation*}
+    | f(x)  | \le M,\quad \forall\ x \in A
+\end{equation*}
+称\(f\) 有界. 设\(B \subset A,\ B \neq \varnothing \)，如果\(f|_{B}\) 有界，称\(f\) 在\(\)
+
+\end{document}
